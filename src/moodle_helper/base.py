@@ -2,6 +2,7 @@ from .common import *
 import base64
 import os
 
+
 class QuestionBase:
     def __init__(self):
         self.tags = []
@@ -12,12 +13,13 @@ class QuestionBase:
         self.penalty = 0.3
         self.hidden = 0
         self.type = ""
-        self.params = {}
         self.res_dir = "."
 
     @template
     def render_fragment(self, text):
-        return text
+        if type(text) is str:
+            return text
+        return text.render()
 
     @template
     def render_tags(self):
@@ -34,7 +36,7 @@ class QuestionBase:
 {% endfor %}
 </tags>
         """
-    
+
     def image(self, filepath, tag="img", **kwargs):
         with open(self.res_dir + "/" + filepath, "rb") as f:
             # TODO maybe somehow make faster
@@ -42,7 +44,7 @@ class QuestionBase:
         _, ext = os.path.splitext(filepath)
         kwargs["src"] = f"data:image/{ ext };base64,{ image }"
         return Template(
-"""
+            """
 <{{ tag }} {% for k, v in attr.items() %} {{ k }}="{{ v }}" {% endfor %} />
 """).render(tag=tag, filepath=filepath, image=image, attr=kwargs)
 
@@ -76,12 +78,13 @@ class QuestionBase:
     {{ q.rest() }}
 </question>
         """
-    
+
     def add_param(self, param, value):
-        self.params[param] = value
-    
-    def param(self, param):
-        return self.params.get(param, "@@KEY_ERROR@@")
+        setattr(self, param, value)
+
+    def add_params(self, **kwargs):
+        for k, v in kwargs:
+            self.add_param(k, v)
 
     @template
     def rest(self):

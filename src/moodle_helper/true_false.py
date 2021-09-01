@@ -1,5 +1,6 @@
 from .base import *
 
+
 class TrueFalseQuestion(QuestionBase):
     def __init__(self):
         super().__init__()
@@ -7,10 +8,10 @@ class TrueFalseQuestion(QuestionBase):
         self.falseans = None
         self.correctone = True
         self.type = "truefalse"
-    
+
     def add_trueans(self, feedback=""):
         self.trueans = ("true", feedback)
-    
+
     def add_falseans(self, feedback=""):
         self.falseans = ("false", feedback)
 

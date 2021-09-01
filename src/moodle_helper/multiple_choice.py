@@ -1,5 +1,6 @@
 from .base import *
 
+
 class MultipleChoiceQuestion(QuestionBase):
     def __init__(self):
         super().__init__()
@@ -11,15 +12,15 @@ class MultipleChoiceQuestion(QuestionBase):
         self.partiallycorrectfeedback = ""
         self.incorrectfeedback = ""
         self.answernumbering = "none"
-    
+
     def add_answer(self, text, fraction, feedback=""):
         self.answers.append((text, fraction, feedback))
-    
+
     @template
     def rest(self):
         if not self.answernumbering in ["none", "abc", "ABCD", "123"]:
             raise ValueError("invalid answernumbering")
-        
+
         return """
 <shuffleanswers>{{ 1 if q.shuffleanswers else 0 }}</shuffleanswers>
 <single>{{ "true" if q.single else "false" }}</single>

@@ -1,5 +1,6 @@
 from jinja2 import Template
 
+
 def template(f):
     def closure(self, *args, **kwargs):
         r = f(self, *args, **kwargs)

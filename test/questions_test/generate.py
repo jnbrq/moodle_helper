@@ -1,15 +1,13 @@
 from typing import List
 from moodle_helper import *
 
-def tags() -> List[str]:
-    return [ "test" ]
 
 def generate_questions() -> List[QuestionBase]:
     q1 = MultipleChoiceQuestion()
     q1.add_param("thingy", "logo")
     q1.name = "Test Question #1"
     q1.text = """
-To which school does the following {{ q.param("thingy") }} belong?
+To which school does the following {{ q.thingy }} belong?
 <br />
 {{ q.image("epfl.png", style="width: 10%;") }} <!-- simple html -->
     """
@@ -34,5 +32,32 @@ To which school does the following {{ q.param("thingy") }} belong?
     q3.add_answer("EPFL", "This is the French one.")
     q3.add_answer("ETHL", "This is the German one.")
     q3.tags.extend(["test", "epfl"])
-    
-    return [q1, q2, q3]
+
+    q4 = NumericalQuestion()
+    q4.name = "Test Question #4"
+    q4.text = "Do the following calculation: 5 mW * 2 ns"
+    q4.add_answer(10, 0.1)
+    q4.add_unit(1, "pJ")
+    q4.add_unit(1000, "fJ")  # 1 fJ = 1000 pJ
+    q4.show_units()
+    q4.tags.extend(["test", "physics"])
+
+    q5 = NumericalQuestion()
+    q5.name = "Test Question #5"
+    layout = SimpleLayout([0.3, 0.3, 0.3, .1])
+    layout.text("This question has an answer of 1. Let's see if layout works")
+    layout.next_cell()
+    layout.text("Section A")
+    layout.image("epfl.png")
+    layout.next_cell()
+    layout.text("Section B")
+    layout.image("epfl.png")
+    layout.next_cell()
+    layout.text("Section C")
+    layout.image("epfl.png")
+    layout.done()
+    q5.text = layout
+    q5.add_answer(1, 0)
+    q5.tags.extend(["test", "epfl"])
+
+    return [q1, q2, q3, q4, q5]
