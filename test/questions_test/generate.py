@@ -1,7 +1,6 @@
 from typing import List
 from moodle_helper import *
 
-
 def generate_questions() -> List[QuestionBase]:
     q1 = MultipleChoiceQuestion()
     q1.add_param("thingy", "logo")
@@ -42,6 +41,7 @@ To which school does the following {{ q.thingy }} belong?
     q4.add_unit(1, "pJ")
     q4.add_unit(1000, "fJ")  # 1 fJ = 1000 pJ
     q4.show_units()
+    # q4.units_on_left()
     q4.tags.extend(["test", "physics"])
 
     q5 = NumericalQuestion()

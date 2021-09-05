@@ -2,7 +2,6 @@ from .common import *
 import base64
 import os
 
-
 class QuestionBase:
     def __init__(self):
         self.tags = []
@@ -16,13 +15,13 @@ class QuestionBase:
         self.res_dir = "."
 
     @template
-    def render_fragment(self, text):
+    def render_fragment(self, text: str) -> str:
         if type(text) is str:
             return text
         return text.render()
 
     @template
-    def render_tags(self):
+    def render_tags(self) -> str:
         return """
 <tags>
 {% for tag in q.tags %}
@@ -37,7 +36,7 @@ class QuestionBase:
 </tags>
         """
 
-    def image(self, filepath, tag="img", **kwargs):
+    def image(self, filepath: str, tag: str="img", **kwargs) -> str:
         with open(self.res_dir + "/" + filepath, "rb") as f:
             # TODO maybe somehow make faster
             image = base64.b64encode(f.read()).decode("utf-8")
@@ -83,7 +82,7 @@ class QuestionBase:
         setattr(self, param, value)
 
     def add_params(self, **kwargs):
-        for k, v in kwargs:
+        for k, v in kwargs.items():
             self.add_param(k, v)
 
     @template

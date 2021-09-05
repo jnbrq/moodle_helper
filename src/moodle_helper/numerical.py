@@ -12,8 +12,8 @@ class NumericalQuestion(QuestionBase):
         self.unitpenalty = 0.0
         self.unitsleft = 0
 
-    def add_answer(self, text, tolerance, feedback=""):
-        self.answer = (text, 100, tolerance, feedback)
+    def add_answer(self, x, tolerance, feedback=""):
+        self.answer = (x, 100, tolerance, feedback)
 
     def add_unit(self, multiplier, name):
         self.units.append((multiplier, name))

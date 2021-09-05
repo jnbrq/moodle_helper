@@ -15,7 +15,7 @@ class Text:
 @dataclass
 class Image:
     # TODO support alignment as well
-    file_path: str
+    filepath: str
     width: str = "90%"
     max_width: str = "600px"
 
@@ -23,9 +23,9 @@ class Image:
         rest_style = "" # "display: block; margin-left: auto; margin-right: auto; "
         if self.max_width:
             return '{{{{ q.image("{}", style="width: {}; max-width: {}; {}") }}}}' \
-                .format(self.file_path, self.width, self.max_width, rest_style)
+                .format(self.filepath, self.width, self.max_width, rest_style)
         return '{{{{ q.image("{}", style="width: {}; {}") }}}}'\
-            .format(self.file_path, self.width, rest_style)
+            .format(self.filepath, self.width, rest_style)
 
 
 class SimpleLayout:
@@ -73,8 +73,8 @@ class SimpleLayout:
         self._cells[-1].append(Text(text))
         return self
 
-    def image(self, file_path: str, width: str = "90%", max_width: str = ""):
-        self._cells[-1].append(Image(file_path, width, max_width))
+    def image(self, filepath: str, width: str = "90%", max_width: str = ""):
+        self._cells[-1].append(Image(filepath, width, max_width))
         return self
     
     def done(self):
