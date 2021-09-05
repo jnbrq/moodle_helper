@@ -4,7 +4,7 @@ This is an automated tool for generating questions in MoodleXML format.
 
 ## How to execute?
 
-Make sure that src path is in the `PYTHONPATH`. Execute the following from the root directory:
+Make sure that src path is in the `PYTHONPATH`. Execute the following from the project root directory:
 
     export PYTHONPATH=$(pwd)/src:$PYTHONPATH
 
@@ -15,3 +15,7 @@ Install the requirements. Execute the following from the root directory:
 To see how an example works, change the working directory to `test/` and execute:
 
     python3 ./run_all.py
+
+Or, to build a quiz, change the working directory to `questions/` and execute:
+
+    python3 ./generate_quiz.py
