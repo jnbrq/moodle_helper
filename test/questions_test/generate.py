@@ -22,7 +22,9 @@ To which school does the following {{ q.thingy }} belong?
     q2.name = "Test Question #2"
     q2.text = "EPFL is not the best school in the world."
     q2.add_trueans("Wrong answer, EPFL is the best school.")
-    q2.add_falseans("You are correct!")
+    # q2.add_falseans("You are correct!")
+    q2.add_falseans(SimpleLayout([0.5, 0.5]).text(
+        "canberk").next_cell().text("a").next_cell().text("b"))
     q2.mark_correct(False)
     q2.tags.extend(["test", "epfl"])
 
