@@ -55,9 +55,11 @@ class QuizBuilder:
         old_pwd = os.curdir
         os.chdir(path)
         m = __import__("{package_name}.generate", fromlist=[None])
-        questions: QuestionWrapper = getattr(m, "generate")()
-        setattr(questions, "_X_res_dir", os.curdir + os.pathsep + package_name)
-        self.questions.append(questions)
+        qws: List[QuestionWrapper] = getattr(m, "generate")()
+        for qw in qws:
+            if not qw.skip:
+                setattr(qw, "_X_res_dir", os.curdir + os.pathsep + package_name)
+                self.questions.append(qw)
         os.chdir(old_pwd)
 
     def fetch_questions(
@@ -69,10 +71,11 @@ class QuizBuilder:
         package_names = filter(os.path.isdir, os.listdir(os.curdir))
         for package_name in package_names:
             m = __import__(f"{package_name}.generate", fromlist=[None])
-            qw: QuestionWrapper = getattr(m, "generate")()
-            if filterfn(qw) and not qw.skip:
-                setattr(qw, "_X_res_dir", os.curdir + "/" + package_name)
-                self.questions.append(qw)
+            qws: List[QuestionWrapper] = getattr(m, "generate")()
+            for qw in qws:
+                if filterfn(qw) and not qw.skip:
+                    setattr(qw, "_X_res_dir", os.curdir + "/" + package_name)
+                    self.questions.append(qw)
         os.chdir(old_pwd)
 
     def shuffle_questions(self, shuffler=random.shuffle) -> None:

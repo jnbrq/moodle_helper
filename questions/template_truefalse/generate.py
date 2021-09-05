@@ -1,9 +1,9 @@
-from moodle_helper import QuestionBase, TrueFalseQuestion
+from moodle_helper import QuestionBase, TrueFalseQuestion, QuestionWrapper
 from typing import List, Dict
 from datetime import datetime
 
 
-class MyQuestion:
+class MyQuestion(QuestionWrapper):
     # edit these parameters
     author: str = "John Doe"
     name: str = "Test: True/False"
@@ -79,8 +79,8 @@ class MyQuestion:
         return l
 
 
-def generate():
-    return MyQuestion()
+def generate() -> List[QuestionWrapper]:
+    return [MyQuestion()]
 
 
 if __name__ == "__main__":

@@ -85,8 +85,8 @@ class MyQuestion(QuestionWrapper):
         return l
 
 
-def generate():
-    return MyQuestion()
+def generate() -> List[QuestionWrapper]:
+    return [MyQuestion()]
 
 
 if __name__ == "__main__":
