@@ -85,8 +85,4 @@ def generate() -> List[QuestionWrapper]:
 
 
 if __name__ == "__main__":
-    my_question = generate()
-    q = my_question.question()
-    p = my_question.parameters_list()
-    q.add_params(p[0])
-    print(q.render())
+    pass
