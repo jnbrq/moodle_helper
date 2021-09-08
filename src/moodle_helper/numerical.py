@@ -36,33 +36,33 @@ class NumericalQuestion(QuestionBase):
             raise ValueError("answer is None")
 
         return """
-<answer fraction="{{ q.answer[1] }}" format="moodle_auto_format">
+<answer fraction="{{ q.render_fragment(q.answer[1]) }}" format="moodle_auto_format">
     <text>
     <![CDATA[
-        {{ q.answer[0] }}
+        {{ q.render_fragment(q.answer[0]) }}
     ]]>
     </text>
     <feedback>
         <text>
         <![CDATA[
-            {{ q.answer[3] }}
+            {{ q.render_fragment(q.answer[3]) }}
         ]]>
         </text>
     </feedback>
     <tolerance>
-        {{ q.answer[2] }}
+        {{ q.render_fragment(q.answer[2]) }}
     </tolerance>
 </answer>
 <units>
 {% for multiplier, name in q.units %}
     <unit>
-        <multiplier>{{ multiplier }}</multiplier>
-        <unit_name>{{ name }}</unit_name>
+        <multiplier>{{ q.render_fragment(multiplier) }}</multiplier>
+        <unit_name>{{ q.render_fragment(name) }}</unit_name>
     </unit>
 {% endfor %}
 </units>
-<unitgradingtype>{{ q.unitgradingtype }}</unitgradingtype>
-<unitpenalty>{{ q.unitpenalty }}</unitpenalty>
-<showunits>{{ q.showunits }}</showunits>
-<unitsleft>{{ q.unitsleft }}</unitsleft>
+<unitgradingtype>{{ q.render_fragment(q.unitgradingtype) }}</unitgradingtype>
+<unitpenalty>{{ q.render_fragment(q.unitpenalty) }}</unitpenalty>
+<showunits>{{ q.render_fragment(q.showunits) }}</showunits>
+<unitsleft>{{ q.render_fragment(q.unitsleft) }}</unitsleft>
         """

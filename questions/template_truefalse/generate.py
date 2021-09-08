@@ -10,7 +10,7 @@ class MyQuestion(QuestionWrapper):
     difficulty: int = 1
     created: datetime = datetime(2021, 9, 5)  # year, month, day, ...
     tags = ["none"]
-    skip = False
+    skip = True
 
     def __init__(self) -> None:
         """

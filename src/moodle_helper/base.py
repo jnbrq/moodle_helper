@@ -15,10 +15,10 @@ class QuestionBase:
         self.res_dir = "."
 
     @template
-    def render_fragment(self, text: str) -> str:
-        if type(text) is str:
-            return text
-        return text.render()
+    def render_fragment(self, text: object) -> str:
+        if hasattr(text, "render"):
+            return text.render()
+        return str(text)
 
     @template
     def render_tags(self) -> str:
@@ -74,6 +74,7 @@ class QuestionBase:
     </generalfeedback>
     <penalty>{{ q.penalty }}</penalty>
     <hidden>{{ 1 if q.hidden else 0 }}</hidden>
+    {{ q.render_tags() }}
     {{ q.rest() }}
 </question>
         """

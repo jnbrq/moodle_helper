@@ -1,16 +1,16 @@
-from moodle_helper import QuestionBase, NumericalQuestion, QuestionWrapper
+from moodle_helper import *
 from typing import List, Dict
 from datetime import datetime
 
 
 class MyQuestion(QuestionWrapper):
     # edit these parameters
-    author: str = "John Doe"
-    name: str = "Test: Numerical"
+    author: str = "Canberk Sonmez"
+    name: str = "Caches: Average Memory Access Time - 1"
     difficulty: int = 1
-    created: datetime = datetime(2021, 9, 5)  # year, month, day, ...
-    tags = ["none"]
-    skip = True
+    created: datetime = datetime(2021, 9, 8)  # year, month, day, ...
+    tags = ["cache", "amat"]
+    skip = False
 
     def __init__(self) -> None:
         """
@@ -29,13 +29,23 @@ class MyQuestion(QuestionWrapper):
 
         # edit below
         q.text = """
-        Question text here...
-        </br>
-        You can use HTML tags, such as <strong>bold</strong>.
-        </br>
-        You can use parameters: {{ q.school }} is amazing!
-        </br>
-        Parameters are also applicable in answers as well.
+        Consider a processor with the following cache hierarchy:
+        <br/>
+        <ul>
+            <li>
+            1-cycle L1 cache has a hit rate of {{ q.l1_hr }}.
+            </li>
+
+            <li>
+            {{ q.l2_lat }}-cycle L2 cache has a hit rate of {{ q.l2_hr }}
+            </li>
+
+            <li>
+            Main memory has a {{ q.mm_lat }}-cycle latency.
+            </li>
+        </ul>
+        <br/>
+        What is the average memory access time (AMAT) for this processor?
         """
         # Some quick tips for formatting the question text and answers:
         #
@@ -49,13 +59,13 @@ class MyQuestion(QuestionWrapper):
         #    These sequences interfere with jinja2 template generator.
 
         # usage: q.add_answer(ans, tolerance, "feedback")
-        q.add_answer(10, 0.1, "feedback for this answer")
+        q.add_answer("{{ q.ans }}", 0.001, "")
 
         # you can also add different units. please check the test question q4.
         
-        q.generalfeedback = "general feedback"
-        q.penalty = 0.3 # penalty in case of wrong answer
-        q.defaultgrade = 4 # default grade that this question has
+        q.generalfeedback = ""
+        q.penalty = 1 # penalty in case of wrong answer
+        q.defaultgrade = 2 # default grade that this question has
 
         return q
 
@@ -68,12 +78,17 @@ class MyQuestion(QuestionWrapper):
         # in the question text.
         l = []
 
-        l.append({"school": "EPFL"})
-        l.append({"school": "UNIL"})
-        # the question is instantiated twice with q.school being replaced
-        # by EPFL and UNIL.
+        def add(l1_hr, l2_hr, l2_lat, mm_lat):
+            ans = 1 + (1 - l1_hr) * (l2_lat + (1 - l2_hr) * mm_lat)
+            l.append({
+                "l1_hr": l1_hr,
+                "l2_hr": l2_hr,
+                "l2_lat": l2_lat,
+                "mm_lat": mm_lat,
+                "ans": ans
+            })
 
-        # you can add new sets of parameters
+        add(0.80, 0.90, 5, 100)
 
         return l
 
