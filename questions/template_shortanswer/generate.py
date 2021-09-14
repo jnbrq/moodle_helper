@@ -1,5 +1,5 @@
 from moodle_helper import QuestionBase, ShortAnswerQuestion, QuestionWrapper
-from typing import List, Dict
+from typing import Any, List, Dict
 from datetime import datetime
 
 
@@ -57,7 +57,7 @@ class MyQuestion(QuestionWrapper):
         
         return q
 
-    def parameters_list(self) -> List[Dict[str, object]]:
+    def parameters_list(self) -> List[Dict[str, Any]]:
         """
         Returns parameters to instantiate the question.
         """

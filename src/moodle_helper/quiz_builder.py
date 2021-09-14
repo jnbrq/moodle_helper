@@ -1,7 +1,7 @@
 from .base import *
 from abc import ABC, abstractmethod
 from datetime import datetime
-from typing import List, Callable, Dict
+from typing import Any, List, Callable, Dict
 import random
 import os
 
@@ -46,6 +46,16 @@ class QuestionWrapper(ABC):
         ...
 
 
+class Chooser:
+    @staticmethod
+    def random(l: List[Any]) -> List[Any]:
+        return [random.choice(l)]
+
+    @staticmethod
+    def all(l: List[Any]) -> List[Any]:
+        return l
+
+
 class QuizBuilder:
     def __init__(self, quiz_tag) -> None:
         self.questions: List[QuestionWrapper] = []
@@ -58,7 +68,8 @@ class QuizBuilder:
         qws: List[QuestionWrapper] = getattr(m, "generate")()
         for qw in qws:
             if not qw.skip:
-                setattr(qw, "_X_res_dir", os.curdir + os.pathsep + package_name)
+                setattr(qw, "_X_res_dir", os.curdir +
+                        os.pathsep + package_name)
                 self.questions.append(qw)
         os.chdir(old_pwd)
 
@@ -84,19 +95,20 @@ class QuizBuilder:
     def trim_quiz(self, question_count: int = 10) -> None:
         self.questions = self.questions[0:question_count]
 
-    def build_xml(self, random_choice: Callable[[List[object]], object] = random.choice) -> str:
+    def build_xml(self, chooser: Callable[[List[Any]], List[Any]] = Chooser.random) -> str:
         out = []
         out.append("<?xml version=\"1.0\" ?>\n<quiz>")
         for qq in self.questions:
             question = qq.question()
-            params = random_choice(qq.parameters_list())
-            question.add_params(**params)
-            question.res_dir = qq._X_res_dir
+            params_list = chooser(qq.parameters_list())
             question.tags.append(self.quiz_tag)
-            out.append(question.render())
+            for params in params_list:
+                question.add_params(**params)
+                question.res_dir = qq._X_res_dir
+                out.append(question.render())
         out.append("</quiz>")
         return "\n".join(out)
 
-    def write_xml_file(self, fname: str) -> None:
+    def write_xml_file(self, fname: str, *args, **kwargs) -> None:
         with open(fname, "w") as f:
-            f.write(self.build_xml())
+            f.write(self.build_xml(*args, **kwargs))

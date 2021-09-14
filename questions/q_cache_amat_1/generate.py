@@ -1,5 +1,5 @@
 from moodle_helper import *
-from typing import List, Dict
+from typing import Any, List, Dict
 from datetime import datetime
 
 
@@ -9,7 +9,7 @@ class MyQuestion(QuestionWrapper):
     name: str = "Caches: Average Memory Access Time - 1"
     difficulty: int = 1
     created: datetime = datetime(2021, 9, 8)  # year, month, day, ...
-    tags = ["cache", "amat"]
+    tags = ["cache", "amat", "cache-amat-q1"]
     skip = False
 
     def __init__(self) -> None:
@@ -62,14 +62,14 @@ class MyQuestion(QuestionWrapper):
         q.add_answer("{{ q.ans }}", 0.001, "")
 
         # you can also add different units. please check the test question q4.
-        
+
         q.generalfeedback = ""
-        q.penalty = 1 # penalty in case of wrong answer
-        q.defaultgrade = 2 # default grade that this question has
+        q.penalty = 1  # penalty in case of wrong answer
+        q.defaultgrade = 2  # default grade that this question has
 
         return q
 
-    def parameters_list(self) -> List[Dict[str, object]]:
+    def parameters_list(self) -> List[Dict[str, Any]]:
         """
         Returns parameters to instantiate the question.
         """
@@ -89,6 +89,10 @@ class MyQuestion(QuestionWrapper):
             })
 
         add(0.80, 0.90, 5, 100)
+        add(0.85, 0.70, 6, 110)
+        add(0.90, 0.75, 7, 120)
+        add(0.95, 0.40, 8, 130)
+        add(0.99, 0.10, 9, 140)
 
         return l
 
