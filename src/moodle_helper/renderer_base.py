@@ -41,13 +41,9 @@ class RendererBase(ABC):
         if hasattr(obj, "render"):
             return obj.render(q=self.q)
         return str(obj)
-
+    
     def raw(self, obj: object, *args, **kwargs) -> str:
-        l = []
-        l.append("{{ raw }}")
+        # not supposed to be rendered by jinja
         if hasattr(obj, "render"):
-            l.append(obj.render(q=self.q))
-        else:
-            l.append(str(obj))
-        l.append("{{ endraw }}")
-        return "\n".join(l)
+            return obj.render(q=self.q, r=self)
+        return str(obj)

@@ -1,0 +1,46 @@
+<div class="mb-3">
+    <label class="form-label">Answer:</label>
+    <div class="form-check">
+        <input class="form-check-input" name="exampleradios_{{ r.n }}" type="radio">
+        <label class="form-check-label" for="defaultCheck1">
+          True
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" name="exampleradios_{{ r.n }}" type="radio">
+        <label class="form-check-label" for="defaultCheck1">
+          False
+        </label>
+    </div>
+</div>
+<div class="answer">
+    <em>Answers:</em>
+    <div class="list-group-item">
+        True
+        {% if q.correctone %}
+        <span class="badge bg-success">correct answer</span>
+        {% else %}
+        <span class="badge bg-danger">wrong answer</span>
+        {% endif %}
+        <br/>
+        <div class="answer-feedback">
+        <em>Feedback:</em>
+        <br/>
+        {{ r.fragment(q.trueans[1]) }}
+        </div>
+    </div>
+    <div class="list-group-item">
+        False
+        {% if not q.correctone %}
+        <span class="badge bg-success">correct answer</span>
+        {% else %}
+        <span class="badge bg-danger">wrong answer</span>
+        {% endif %}
+        <br/>
+        <div class="answer-feedback">
+        <em>Feedback:</em>
+        <br/>
+        {{ r.fragment(q.falseans[1]) }}
+        </div>
+    </div>
+</div>

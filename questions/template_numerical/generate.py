@@ -52,6 +52,8 @@ class MyQuestion(QuestionWrapper):
         q.add_answer(10, 0.1, "feedback for this answer")
 
         # you can also add different units. please check the test question q4.
+        q.add_unit(1, "pJ")
+        q.add_unit(1000, "fJ")  # 1 fJ = 1000 pJ
         
         q.generalfeedback = "general feedback"
         q.penalty = 0.3 # penalty in case of wrong answer

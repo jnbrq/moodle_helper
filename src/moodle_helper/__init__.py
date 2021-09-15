@@ -6,3 +6,5 @@ from .question_types import \
     NumericalQuestion
 from .layout import SimpleLayout
 from .quiz_builder import QuizBuilder, QuestionWrapper
+from .moodlexmlhtml import MoodleXMLHTMLRenderer
+from .htmlpreview import HTMLPreview

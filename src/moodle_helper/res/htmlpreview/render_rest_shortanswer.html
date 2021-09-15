@@ -1,0 +1,23 @@
+<div class="mb-3">
+    <label class="form-label">Answer:</label>
+    <input class="form-control">
+</div>
+<div class="answer">
+    <em>Possible answers:</em>
+    <br/>
+    <div class="list-group">
+    {% for answer, feedback in q.answers %}
+    <div class="list-group-item">
+        <em>Answer:</em>
+        <br/>
+        {{ r.fragment(answer) }}
+        <br/>
+        <div class="answer-feedback">
+        <em>Feedback:</em>
+        <br/>
+        {{ r.fragment(feedback) }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>

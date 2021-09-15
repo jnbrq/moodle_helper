@@ -18,10 +18,13 @@ class Filter:
 
 
 def main() -> None:
-    qb = QuizBuilder("my-test-quiz")
+    fname = "my-test-quiz"
+    tag = "my-test-quiz"
+    qb = QuizBuilder(tag)
     qb.fetch_questions(Filter())
     qb.shuffle_questions()
-    qb.write_file("my-test-quiz.xml")
+    qb.output_moodle_xml(f"{fname}.xml")
+    qb.output_html_preview(f"{fname}.html")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,24 @@
+<div class="card mb-2">
+    <div class="card-header">
+        <h5 class="card-title">
+        Question {{ r.fragment(r.n) }}
+        </h5>
+        <span class="qname">{{ r.fragment(q.name) }}</span>
+    </div>
+    <div class="card-body">
+        <div class="mb-4">
+            {{ r.fragment(q.text) }}
+        </div>
+        {{ r._render_rest() }}
+    </div>
+    <div class="card-footer feedback">
+        General Feedback:
+        <br/>
+        {{ r.fragment(q.generalfeedback) }}
+    </div>
+    <div class="card-footer tags">
+        Tags:
+        <br/>
+        {{ r._render_tags() }}
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="mb-3">
+    <label class="form-label">Answer:</label>
+    <input class="form-control mb-2">
+    {% if q.units | length > 0 %}
+    <select class="form-select unit">
+        {% for mult, unit in q.units %}
+        <option>{{ unit }} <!-- [{{ mult }}] --></option>
+        {% endfor %}
+    </select>
+    {% endif %}
+</div>
+<div class="answer">
+    <em>Answer:</em>
+    {% if q.units | length > 0 %}
+    {{ r.fragment((q.answer[0] | int) * q.units[0][0]) }}
+    {{ r.fragment(q.units[0][1]) }}
+    {% else %}
+    {{ r.fragment(q.answer[0]) }}
+    {% endif %}
+    <br/>
+    <div class="answer-feedback">
+    <em>Feedback:</em>
+    {{ r.fragment(q.answer[3]) }}
+    </div>
+</div>

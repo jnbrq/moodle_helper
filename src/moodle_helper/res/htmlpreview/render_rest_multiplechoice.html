@@ -1,0 +1,33 @@
+<div class="mb-3">
+    <label class="form-label">Answer:</label>
+    {% for answer, fraction, feedback in q.answers %}
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox">
+        <label class="form-check-label" for="defaultCheck1">
+          {{ r.fragment(answer) }}
+        </label>
+    </div>
+    {% endfor %}
+</div>
+<div class="answer">
+    <em>Possible answers:</em>
+    {% for answer, fraction, feedback in q.answers %}
+    <div class="list-group-item">
+        <em>Answer:
+        {% if fraction > 0 %}
+        <span class="badge bg-success">{{ fraction }}%</span>
+        {% else %}
+        <span class="badge bg-danger">wrong answer</span>
+        {% endif %}
+        </em>
+        <br/>
+        {{ r.fragment(answer) }}
+        <br/>
+        <div class="answer-feedback">
+        <em>Feedback:</em>
+        <br/>
+        {{ r.fragment(feedback) }}
+        </div>
+    </div>
+    {% endfor %}
+</div>

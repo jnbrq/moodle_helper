@@ -1,3 +1,4 @@
+from moodle_helper.htmlpreview import HTMLPreview
 from .moodlexmlhtml import MoodleXMLHTMLRenderer
 from .renderer_base import RendererBase
 from .question_types import QuestionBase
@@ -59,10 +60,9 @@ class Chooser:
 
 
 class QuizBuilder:
-    def __init__(self, quiz_tag, renderer: Callable[[QuestionBase], RendererBase] = MoodleXMLHTMLRenderer) -> None:
+    def __init__(self, quiz_tag) -> None:
         self.questions: List[QuestionWrapper] = []
         self.quiz_tag = quiz_tag
-        self.renderer: Callable[[QuestionBase], RendererBase] = renderer
 
     def fetch_question(self, package_name: str, path: str = ".") -> None:
         old_pwd = os.curdir
@@ -98,20 +98,26 @@ class QuizBuilder:
     def trim_quiz(self, question_count: int = 10) -> None:
         self.questions = self.questions[0:question_count]
 
-    def build(self, chooser: Callable[[List[Any]], List[Any]] = Chooser.random) -> str:
+    def build(self,
+              renderer_factory: Callable[[QuestionBase],
+                                         RendererBase] = MoodleXMLHTMLRenderer,
+              chooser: Callable[[List[Any]], List[Any]] = Chooser.random) -> str:
         def qs():
             for qq in self.questions:
                 question = qq.question()
-                renderer = self.renderer()
                 params_list = chooser(qq.parameters_list())
                 question.tags.append(self.quiz_tag)
                 for params in params_list:
                     question.add_params(**params)
                     question.res_dir = qq._X_res_dir
                     yield question
-        renderer = self.renderer()
+        renderer = renderer_factory()
         return renderer.render_quiz(qs())
 
-    def write_file(self, fname: str, *args, **kwargs) -> None:
+    def output_moodle_xml(self, fname: str, *args, **kwargs) -> None:
         with open(fname, "w") as f:
-            f.write(self.build(*args, **kwargs))
+            f.write(self.build(renderer_factory=MoodleXMLHTMLRenderer, *args, **kwargs))
+    
+    def output_html_preview(self, fname: str, *args, **kwargs) -> None:
+        with open(fname, "w") as f:
+            f.write(self.build(renderer_factory=HTMLPreview, *args, **kwargs))
