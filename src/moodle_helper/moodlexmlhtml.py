@@ -12,16 +12,24 @@ class MoodleXMLHTMLRenderer(RendererBase):
     Outputs in MoodleXML format, text parts are HTML.
     """
 
-    def __init__(self, q: QuestionBase) -> None:
-        super().__init__(q)
+    def __init__(self) -> None:
+        super().__init__()
+        self.q = None
+        self.qs = None
 
     @render_jinja
-    def render_question(self) -> str:
+    def render_quiz(self, qs: Iterable[QuestionBase], *args, **kwargs) -> str:
+        self.qs = qs
+        return resources.text("render_quiz.xml")
+
+    @render_jinja
+    def render_question(self, q: QuestionBase) -> str:
+        self.q = q
         return resources.text("render_question.xml")
 
     def jinja(self, t: str) -> str:
         template = Template(t)
-        return template.render(q=self.q, r=self)
+        return template.render(q=self.q, qs=self.qs, r=self)
 
     def image(self, filepath: str, tag: str = "img", *args, **kwargs) -> str:
         with open(self.q.res_dir + "/" + filepath, "rb") as f:

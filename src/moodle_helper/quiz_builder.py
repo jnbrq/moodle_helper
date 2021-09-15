@@ -99,19 +99,18 @@ class QuizBuilder:
         self.questions = self.questions[0:question_count]
 
     def build(self, chooser: Callable[[List[Any]], List[Any]] = Chooser.random) -> str:
-        out = []
-        out.append("<?xml version=\"1.0\" ?>\n<quiz>")
-        for qq in self.questions:
-            question = qq.question()
-            renderer = self.renderer(question)
-            params_list = chooser(qq.parameters_list())
-            question.tags.append(self.quiz_tag)
-            for params in params_list:
-                question.add_params(**params)
-                question.res_dir = qq._X_res_dir
-                out.append(renderer.render_question())
-        out.append("</quiz>")
-        return "\n".join(out)
+        def qs():
+            for qq in self.questions:
+                question = qq.question()
+                renderer = self.renderer()
+                params_list = chooser(qq.parameters_list())
+                question.tags.append(self.quiz_tag)
+                for params in params_list:
+                    question.add_params(**params)
+                    question.res_dir = qq._X_res_dir
+                    yield question
+        renderer = self.renderer()
+        return renderer.render_quiz(qs())
 
     def write_file(self, fname: str, *args, **kwargs) -> None:
         with open(fname, "w") as f:

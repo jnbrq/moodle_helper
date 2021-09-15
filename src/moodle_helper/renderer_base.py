@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import base64
 from io import FileIO
+from typing import Iterable, List
 from .question_types import QuestionBase
 
 def render_jinja(f, *args, **kwargs):
@@ -16,12 +17,15 @@ def base64_embed(f: FileIO, data_type: str="data:image/png") -> str:
     return f"{ data_type };base64,{ data }"
 
 class RendererBase(ABC):
-    def __init__(self, q: QuestionBase) -> None:
+    def __init__(self) -> None:
         super().__init__()
-        self.q = q
+    
+    @abstractmethod
+    def render_quiz(self, qs: Iterable[QuestionBase], *args, **kwargs) -> str:
+        ...
 
     @abstractmethod
-    def render_question(self, *args, **kwargs) -> str:
+    def render_question(self, q: QuestionBase, *args, **kwargs) -> str:
         ...
     
     @abstractmethod

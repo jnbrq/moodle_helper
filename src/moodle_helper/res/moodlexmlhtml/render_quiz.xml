@@ -1,0 +1,6 @@
+<?xml version=\"1.0\"?>
+<quiz>
+{% for q in qs %}
+{{ r.render_question(q) }}
+{% endfor %}
+</quiz>
