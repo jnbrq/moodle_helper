@@ -1,0 +1,28 @@
+<answer fraction="{{ 100 if q.correctone else 0 }}">
+    <text>
+    <![CDATA[
+        {{ r.fragment(q.trueans[0]) }}
+    ]]>
+    </text>
+    <feedback>
+        <text>
+        <![CDATA[
+            {{ r.fragment(q.trueans[1]) }}
+        ]]>
+        </text>
+    </feedback>
+</answer>
+<answer fraction="{{ 0 if q.correctone else 100 }}">
+    <text>
+    <![CDATA[
+        {{ r.fragment(q.falseans[0]) }}
+    ]]>
+    </text>
+    <feedback>
+        <text>
+        <![CDATA[
+            {{ r.fragment(q.falseans[1]) }}
+        ]]>
+        </text>
+    </feedback>
+</answer>

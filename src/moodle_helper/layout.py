@@ -8,7 +8,7 @@ class Text:
     # TODO support aligment as well
     text: str
 
-    def render(self):
+    def render(self, *args, **kwargs):
         return self.text
 
 
@@ -19,7 +19,7 @@ class Image:
     width: str = "90%"
     max_width: str = "600px"
 
-    def render(self):
+    def render(self, *args, **kwargs):
         rest_style = "" # "display: block; margin-left: auto; margin-right: auto; "
         if self.max_width:
             return '{{{{ r.image("{}", style="width: {}; max-width: {}; {}") }}}}' \
@@ -33,7 +33,7 @@ class SimpleLayout:
         self._cells = [[]]
         self._proportions = proportions
 
-    def render(self) -> str:
+    def render(self, *args, **kwargs) -> str:
         num_cols = len(self._proportions)
         num_rows = math.ceil((len(self._cells) - 1) / num_cols)
         out_html = []

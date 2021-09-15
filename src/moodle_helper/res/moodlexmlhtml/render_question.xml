@@ -1,0 +1,27 @@
+<question type="{{ q.type }}">
+    <name>
+        <text>
+        <![CDATA[
+            {{ r.fragment(q.name) }}
+        ]]>
+        </text>
+    </name>
+    <questiontext format="html">
+        <text>
+        <![CDATA[
+            {{ r.fragment(q.text) }}
+        ]]>
+        </text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text>
+        <![CDATA[
+            {{ r.fragment(q.generalfeedback) }}
+        ]]>
+        </text>
+    </generalfeedback>
+    <penalty>{{ q.penalty }}</penalty>
+    <hidden>{{ 1 if q.hidden else 0 }}</hidden>
+    {{ r._render_tags() }}
+    {{ r._render_rest() }}
+</question>

@@ -1,0 +1,29 @@
+<answer fraction="{{ r.fragment(q.answer[1]) }}" format="moodle_auto_format">
+    <text>
+    <![CDATA[
+        {{ r.fragment(q.answer[0]) }}
+    ]]>
+    </text>
+    <feedback>
+        <text>
+        <![CDATA[
+            {{ r.fragment(q.answer[3]) }}
+        ]]>
+        </text>
+    </feedback>
+    <tolerance>
+        {{ r.fragment(q.answer[2]) }}
+    </tolerance>
+</answer>
+<units>
+{% for multiplier, name in q.units %}
+    <unit>
+        <multiplier>{{ r.fragment(multiplier) }}</multiplier>
+        <unit_name>{{ r.fragment(name) }}</unit_name>
+    </unit>
+{% endfor %}
+</units>
+<unitgradingtype>{{ r.fragment(q.unitgradingtype) }}</unitgradingtype>
+<unitpenalty>{{ r.fragment(q.unitpenalty) }}</unitpenalty>
+<showunits>{{ r.fragment(q.showunits) }}</showunits>
+<unitsleft>{{ r.fragment(q.unitsleft) }}</unitsleft>

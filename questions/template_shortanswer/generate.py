@@ -9,8 +9,8 @@ class MyQuestion(QuestionWrapper):
     name: str = "Test: Short Answer"
     difficulty: int = 1
     created: datetime = datetime(2021, 9, 5)  # year, month, day, ...
-    tags = ["none"]
-    skip = True
+    tags = ["moodle_quizzer_test"]
+    skip = False
 
     def __init__(self) -> None:
         """
