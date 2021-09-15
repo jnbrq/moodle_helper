@@ -49,7 +49,7 @@ class MyQuestion(QuestionWrapper):
         """
         # Some quick tips for formatting the question text and answers:
         #
-        #  - Import an image: {{ q.image("epfl.png", style="width: 30%;") }}
+        #  - Import an image: {{ r.image("epfl.png", style="width: 30%;") }}
         #  - Bold text: <strong>text...</strong>
         #  - Italic text: <em>text...</em>
         #  - Linebreak: <br/>

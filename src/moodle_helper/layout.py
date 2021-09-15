@@ -22,9 +22,9 @@ class Image:
     def render(self):
         rest_style = "" # "display: block; margin-left: auto; margin-right: auto; "
         if self.max_width:
-            return '{{{{ q.image("{}", style="width: {}; max-width: {}; {}") }}}}' \
+            return '{{{{ r.image("{}", style="width: {}; max-width: {}; {}") }}}}' \
                 .format(self.filepath, self.width, self.max_width, rest_style)
-        return '{{{{ q.image("{}", style="width: {}; {}") }}}}'\
+        return '{{{{ r.image("{}", style="width: {}; {}") }}}}'\
             .format(self.filepath, self.width, rest_style)
 
 

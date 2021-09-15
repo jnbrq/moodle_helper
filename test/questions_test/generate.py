@@ -8,7 +8,7 @@ def generate_questions() -> List[QuestionBase]:
     q1.text = """
 To which school does the following {{ q.thingy }} belong?
 <br />
-{{ q.image("epfl.png", style="width: 10%;") }} <!-- simple html -->
+{{ r.image("epfl.png", style="width: 10%;") }} <!-- simple html -->
     """
     q1.add_answer("ETH Zurich", 0)
     q1.add_answer("EPFL", 100)

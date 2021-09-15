@@ -21,7 +21,7 @@ def main() -> None:
     qb = QuizBuilder("my-test-quiz")
     qb.fetch_questions(Filter())
     qb.shuffle_questions()
-    qb.write_xml_file("my-test-quiz.xml")
+    qb.write_file("my-test-quiz.xml")
 
 
 if __name__ == "__main__":
