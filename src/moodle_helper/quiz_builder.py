@@ -57,6 +57,10 @@ class Chooser:
     @staticmethod
     def all(l: List[Any]) -> List[Any]:
         return l
+    
+    @staticmethod
+    def explode(l: List[Any]) -> List[Any]:
+        return l * 100
 
 
 class QuizBuilder:
