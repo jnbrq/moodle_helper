@@ -12,10 +12,10 @@ Install the requirements. Execute the following from the root directory:
 
     pip install --upgrade -r requirements.txt
 
-To see how an example works, change the working directory to `test/` and execute:
-
-    python3 ./run_all.py
-
-Or, to build a quiz, change the working directory to `questions/` and execute:
+To build a quiz, change the working directory to `questions/` and execute:
 
     python3 ./generate_quiz.py
+
+Or, to run tests, change the working directory to `test/` and execute:
+
+    python3 ./run_all.py
