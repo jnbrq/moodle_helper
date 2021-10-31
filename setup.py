@@ -24,6 +24,9 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src"),
     include_package_data=True,
     python_requires=">=3.6",
+    package_data={
+        '': ['res/htmlpreview/*','res/moodlexmlhtml/*'],
+    },
     install_requires=[
         'jinja2',
     ],
