@@ -6,7 +6,7 @@ This is an automated tool for generating questions in MoodleXML format.
 
 To install this package system-wide:
 
-    python3 -m pip install git+https://github.com/jnbrq/moodle_helper
+    python3 -m pip install --upgrade --force-reinstall git+https://github.com/jnbrq/moodle_helper
 
 ## How to execute?
 
