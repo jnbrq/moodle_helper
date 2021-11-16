@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import Any, List, Callable, Dict
 import random
 import os
+import sys
 
 
 class QuestionWrapper(ABC):
@@ -69,8 +70,7 @@ class QuizBuilder:
         self.quiz_tag = quiz_tag
 
     def fetch_question(self, package_name: str, path: str = ".") -> None:
-        old_pwd = os.curdir
-        os.chdir(path)
+        sys.path.append(path)
         m = __import__("{package_name}.generate", fromlist=[None])
         qws: List[QuestionWrapper] = getattr(m, "generate")()
         for qw in qws:
@@ -78,15 +78,14 @@ class QuizBuilder:
                 setattr(qw, "_X_res_dir", os.curdir +
                         os.pathsep + package_name)
                 self.questions.append(qw)
-        os.chdir(old_pwd)
+        sys.path.remove(path)
 
     def fetch_questions(
             self,
             filterfn: Callable[[QuestionWrapper], bool] = lambda x: True,
             path: str = ".") -> None:
-        old_pwd = os.curdir
-        os.chdir(path)
-        package_names = filter(os.path.isdir, os.listdir(os.curdir))
+        sys.path.append(path)
+        package_names = filter(lambda p: os.path.isdir(path + "/" + p), os.listdir(path + "/"))
         for package_name in package_names:
             m = __import__(f"{package_name}.generate", fromlist=[None])
             qws: List[QuestionWrapper] = getattr(m, "generate")()
@@ -94,7 +93,8 @@ class QuizBuilder:
                 if filterfn(qw) and not qw.skip:
                     setattr(qw, "_X_res_dir", os.curdir + "/" + package_name)
                     self.questions.append(qw)
-        os.chdir(old_pwd)
+        sys.path.remove(path)
+                
 
     def shuffle_questions(self, shuffler=random.shuffle) -> None:
         shuffler(self.questions)
