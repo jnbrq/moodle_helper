@@ -5,24 +5,39 @@ from functools import lru_cache
 cache = lru_cache(None)
 
 
+class GlobalResourceManager:
+    """
+    A global cache for resources.
+    """
+
+    @cache
+    def text(self, respath: str) -> str:
+        with open(respath, "r") as f:
+            return f.read()
+
+    @cache
+    def binary(self, respath: str) -> bytes:
+        with open(respath, "rb") as f:
+            return f.read()
+
+
+_global_resource_manager = GlobalResourceManager()
+
+
 class ResourcesBase:
     @abstractmethod
     def respath(self, resname: str) -> str:
         pass
-    
+
     @abstractmethod
     def resdir(self) -> str:
         pass
 
-    @cache
     def text(self, resname: str) -> str:
-        with open(self.respath(resname), "r") as f:
-            return f.read()
+        return _global_resource_manager.text(self.respath(resname))
 
-    @cache
     def binary(self, resname: str) -> bytes:
-        with open(self.respath(resname), "rb") as f:
-            return f.read()
+        return _global_resource_manager.binary(self.respath(resname))
 
 
 class Resources(ResourcesBase):
@@ -41,7 +56,7 @@ class Resources(ResourcesBase):
 
     def respath(self, resname: str) -> str:
         return f"{self._dir}/{resname}"
-    
+
     def resdir(self) -> str:
         return self._dir
 
@@ -64,7 +79,7 @@ class ModuleResources(ResourcesBase):
 
     def respath(self, resname: str) -> str:
         return f"{self._dir}/res/{self._module}/{resname}"
-    
+
     def resdir(self) -> str:
         return f"{self._dir}/res/{self._module}"
 
@@ -73,11 +88,12 @@ class UninitializedResources(ResourcesBase):
     """
     An uninitialized resources object signals that something is wrong.
     """
+
     def __init__(self, error_msg) -> None:
         self._error_msg = error_msg
 
     def respath(self, resname: str) -> str:
         raise RuntimeError(self._error_msg)
-    
+
     def resdir(self) -> str:
         raise RuntimeError(self._error_msg)

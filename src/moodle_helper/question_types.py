@@ -66,7 +66,7 @@ class QuestionBase:
     def add_param(self, param, value):
         if any([x == param for x in _reserved_names]):
             raise KeyError(
-                f"A reserved name should not be overwritten! QuestionBase.add_param(self, {param}, *, **)")
+                f"A reserved name should not be overwritten! QuestionBase.add_param(self, \"{param}\", *, **)")
         setattr(self, param, value)
 
     def add_params(self, **kwargs):
