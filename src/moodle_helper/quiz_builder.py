@@ -4,7 +4,7 @@ from .renderer_base import RendererBase
 from .question_types import QuestionBase
 from abc import ABC, abstractmethod
 from datetime import datetime
-from typing import Any, List, Callable, Dict
+from typing import Any, List, Callable, Dict, Optional
 import random
 import os
 import sys
@@ -113,6 +113,24 @@ class QuizBuilder:
                     yield question
         renderer = renderer_factory()
         return renderer.render_quiz(qs())
+    
+    def begin(self, question_tag: Optional[str] = None) -> None:
+        if question_tag is not None:
+            self._question_tag = f"{self.quiz_tag}+{question_tag}"
+        else:
+            self._question_tag = None
+        self._added_questions = 0
+        print(f"Current tag = {self._question_tag}")
+    
+    def add(self, qws: List[QuestionWrapper]) -> None:
+        if self._question_tag is not None:
+            for qw in qws:
+                qw.tags.append(self._question_tag)
+        self.questions.extend(qws)
+        self._added_questions = self._added_questions + 1
+
+    def end(self) -> None:
+        print(f"Done adding {self._added_questions} question(s).")
 
     def output_moodle_xml(self, fname: str, *args, **kwargs) -> None:
         with open(fname, "w") as f:

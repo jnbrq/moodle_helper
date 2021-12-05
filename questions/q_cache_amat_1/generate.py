@@ -102,4 +102,4 @@ def generate() -> List[QuestionWrapper]:
 
 
 if __name__ == "__main__":
-    pass
+    default_main(generate())

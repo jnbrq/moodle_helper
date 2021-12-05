@@ -1,4 +1,4 @@
-from moodle_helper import QuestionBase, MultipleChoiceQuestion, QuestionWrapper
+from moodle_helper import *
 from typing import Any, List, Dict
 from datetime import datetime
 
@@ -85,4 +85,4 @@ def generate() -> List[QuestionWrapper]:
 
 
 if __name__ == "__main__":
-    pass
+    default_main(generate())
