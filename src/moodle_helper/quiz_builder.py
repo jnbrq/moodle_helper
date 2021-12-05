@@ -11,35 +11,39 @@ import sys
 
 
 class QuestionWrapper(ABC):
-    @property
-    def author(self) -> str:
-        ...
+    """
+    Children of this class should have the following properties:
 
-    @property
-    def name(self) -> str:
-        ...
+        @property
+        def author(self) -> str:
+            ...
 
-    @property
-    def difficulty(self) -> int:
-        ...
+        @property
+        def name(self) -> str:
+            ...
 
-    @property
-    def created(self) -> datetime:
-        ...
+        @property
+        def difficulty(self) -> int:
+            ...
 
-    @property
-    def tags(self) -> List[str]:
-        ...
+        @property
+        def created(self) -> datetime:
+            ...
 
-    @property
-    def skip(self) -> bool:
-        ...
+        @property
+        def tags(self) -> List[str]:
+            ...
 
-    def question(self) -> QuestionBase:
-        ...
+        @property
+        def skip(self) -> bool:
+            ...
 
-    def parameters_list(self) -> List[Dict[str, object]]:
-        ...
+        def question(self) -> QuestionBase:
+            ...
+
+        def parameters_list(self) -> List[Dict[str, object]]:
+            ...
+    """
 
 
 class Chooser:
