@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<quiz>
+
+<question type="numerical">
+    <name>
+        <text><![CDATA[Test: Numerical]]></text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[
+        Question text here...
+        </br>
+        You can use HTML tags, such as <strong>bold</strong>.
+        </br>
+        You can use parameters: EPFL is amazing!
+        </br>
+        Parameters are also applicable in answers as well.
+        ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[general feedback]]></text>
+    </generalfeedback>
+    <penalty>0.3</penalty>
+    <hidden>0</hidden>
+    <tags>
+
+    <tag>
+        <text><![CDATA[moodle_quizzer_test]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[my-test-quiz]]></text>
+    </tag>
+
+</tags>
+    <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[10]]></text>
+    <feedback>
+        <text><![CDATA[feedback for this answer]]></text>
+    </feedback>
+    <tolerance>0.1</tolerance>
+</answer>
+<units>
+
+    <unit>
+        <multiplier>1</multiplier>
+        <unit_name>pJ</unit_name>
+    </unit>
+
+    <unit>
+        <multiplier>1000</multiplier>
+        <unit_name>fJ</unit_name>
+    </unit>
+
+</units>
+<unitgradingtype>0</unitgradingtype>
+<unitpenalty>0.0</unitpenalty>
+<showunits>0</showunits>
+<unitsleft>0</unitsleft>
+</question>
+
+<question type="shortanswer">
+    <name>
+        <text><![CDATA[Test: Short Answer]]></text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[
+        Question text here...
+        </br>
+        You can use HTML tags, such as <strong>bold</strong>.
+        </br>
+        You can use parameters: UNIL is amazing!
+        </br>
+        Parameters are also applicable in answers as well.
+        ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[general feedback]]></text>
+    </generalfeedback>
+    <penalty>0.3</penalty>
+    <hidden>0</hidden>
+    <tags>
+
+    <tag>
+        <text><![CDATA[moodle_quizzer_test]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[my-test-quiz]]></text>
+    </tag>
+
+</tags>
+    
+<answer fraction="100">
+    <text><![CDATA[alternative answer one]]></text>
+    <feedback>
+        <text><![CDATA[feedback when typed]]></text>
+    </feedback>
+</answer>
+
+<answer fraction="100">
+    <text><![CDATA[alternative answer two]]></text>
+    <feedback>
+        <text><![CDATA[feedback when typed]]></text>
+    </feedback>
+</answer>
+
+</question>
+
+<question type="numerical">
+    <name>
+        <text><![CDATA[Caches: Average Memory Access Time - 1]]></text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[
+        Consider a processor with the following cache hierarchy:
+        <br/>
+        <ul>
+            <li>
+            1-cycle L1 cache has a hit rate of 0.95.
+            </li>
+
+            <li>
+            8-cycle L2 cache has a hit rate of 0.4
+            </li>
+
+            <li>
+            Main memory has a 130-cycle latency.
+            </li>
+        </ul>
+        <br/>
+        What is the average memory access time (AMAT) for this processor?
+        ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[]]></text>
+    </generalfeedback>
+    <penalty>1</penalty>
+    <hidden>0</hidden>
+    <tags>
+
+    <tag>
+        <text><![CDATA[cache]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[amat]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[cache-amat-q1]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[my-test-quiz]]></text>
+    </tag>
+
+</tags>
+    <answer fraction="100" format="moodle_auto_format">
+    <text><![CDATA[5.300000000000004]]></text>
+    <feedback>
+        <text><![CDATA[]]></text>
+    </feedback>
+    <tolerance>0.001</tolerance>
+</answer>
+<units>
+
+</units>
+<unitgradingtype>0</unitgradingtype>
+<unitpenalty>0.0</unitpenalty>
+<showunits>0</showunits>
+<unitsleft>0</unitsleft>
+</question>
+
+<question type="shortanswer">
+    <name>
+        <text><![CDATA[Test: Example Layout]]></text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[A
+<br />
+<table style="border: none;">
+<tr style="border: none;">
+<td style="width: 30.0%; border: none;">
+B
+<br />
+<img  style="width: 90%; "  src="data:image/.png;base64,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LjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgIHhtbG5zOkdJTVA9Imh0dHA6Ly93d3cuZ2ltcC5vcmcveG1wLyIKICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIgogICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICB4bXBNTTpEb2N1bWVudElEPSJnaW1wOmRvY2lkOmdpbXA6ZGJiZmU4MzctNTJkZi00M2FkLTgwMjQtYjUxNzIxOGZkM2Y0IgogICB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjljMmZlMmRkLTE1YTctNDVlOC1iNjY4LTZmYWJlNDg1ZDEyZSIKICAgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjI1MGM4MTM0LWUzYTUtNGRlYy05ZWU3LWNmODQ4YTU5MTQ0MiIKICAgZGM6Rm9ybWF0PSJpbWFnZS9wbmciCiAgIEdJTVA6QVBJPSIyLjAiCiAgIEdJTVA6UGxhdGZvcm09Ik1hYyBPUyIKICAgR0lNUDpUaW1lU3RhbXA9IjE2MzE3MjI0NjQxNDY3NzMiCiAgIEdJTVA6VmVyc2lvbj0iMi4xMC4yNCIKICAgdGlmZjpPcmllbnRhdGlvbj0iMSIKICAgeG1wOkNyZWF0b3JUb29sPSJHSU1QIDIuMTAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJzYXZlZCIKICAgICAgc3RFdnQ6Y2hhbmdlZD0iLyIKICAgICAgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpkMWMyNjNhOC1kZmU4LTQxNWMtOWVkNS1hOGYzZjlhNjAyOTIiCiAgICAgIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkdpbXAgMi4xMCAoTWFjIE9TKSIKICAgICAgc3RFdnQ6d2hlbj0iMjAyMS0wOS0xNVQxODoxNDoyNCswMjowMCIvPgogICAgPC9yZGY6U2VxPgogICA8L3htcE1NOkhpc3Rvcnk+CiAgPC9yZGY6RGVzY3JpcHRpb24+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz6YMYbIAAAAGFBMVEXu7u7///8AAAAqKiqioqJ1dXXNzc1PT09y+P6eAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+UJDxAOGE7nRB4AAAHqSURBVGje7dbNT8IwFABwioDXPjPqlQwGV1hAr4BxZz4OXNnEeIVF/ftt+0o3IMa0Ok3M6wG6sO239X2UWvgLo0YIIYQQQgghhBBCCCGEEELI/0EO/HJ2MuDmL5BoynjroVokSkGN50qRGeDIK0R6ALv1JGGVIksI1Ne4UiSFlf7euyHdhLXmFhlvoYW3SRjfxQZZwJMJO76IcwovZBRFbJCIqSP9qIAzhQyYOkGNPlz5IJgrmUGWxyOtAUdkf3yRsKN+80D44/0U2ogMmD6SSzIEsZlMESleJBzB3AuRxdtlApEeNOVRymNZDioyiUaG9kXk6SvvtjLjOOvoBx3KTxbY7NKozeDcGxnJa9XsALGObjaAW4vclYL9HaQjV0HNlhyrOougbpGU5+FPLNcRmQlE6j2bRSDKpTGqCJGjuLFnCn+5XLCFa3u6ZzFyXOr408AHsnjyogkH3kgqyil8OE1h2bmKx2dm7d6du7Bue1iMbVOMaakYIxDxeatnTgjsNpNURQDbCpi2sgexfjNtRZZ/VgQFGu6blu6IatHPGiSUGmQPG7PZUDy2X31FM7xo9YtSq5d3tn0R2zO8OAVevDLeiC83ra7atHKD9EtJFW2d/xLRf2FCCCGEEEIIIYQQQgghhBBCCHEcH1LXRW7WsVhVAAAAAElFTkSuQmCC"  />
+<br />
+</td>
+<td style="width: 30.0%; border: none;">
+D
+<br />
+E
+<br />
+</td>
+<td style="width: 30.0%; border: none;">
+F
+<br />
+</td>
+<td style="width: 10.0%; border: none;">
+G
+<br />
+</td>
+</tr>
+<tr style="border: none;">
+<td style="width: 30.0%; border: none;">
+H
+<br />
+</td>
+<td style="width: 30.0%; border: none;">
+</td>
+<td style="width: 30.0%; border: none;">
+</td>
+<td style="width: 10.0%; border: none;">
+</td>
+</tr>
+</table>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[general feedback]]></text>
+    </generalfeedback>
+    <penalty>0.3</penalty>
+    <hidden>0</hidden>
+    <tags>
+
+    <tag>
+        <text><![CDATA[moodle_quizzer_test]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[my-test-quiz]]></text>
+    </tag>
+
+</tags>
+    
+<answer fraction="100">
+    <text><![CDATA[alternative answer one]]></text>
+    <feedback>
+        <text><![CDATA[feedback when typed]]></text>
+    </feedback>
+</answer>
+
+<answer fraction="100">
+    <text><![CDATA[alternative answer two]]></text>
+    <feedback>
+        <text><![CDATA[feedback when typed]]></text>
+    </feedback>
+</answer>
+
+</question>
+
+<question type="multichoice">
+    <name>
+        <text><![CDATA[Test: Multichoice]]></text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[
+        Question text here...
+        </br>
+        You can use HTML tags, such as <strong>bold</strong>.
+        </br>
+        You can use parameters: EPFL is amazing!
+        </br>
+        Parameters are also applicable in answers as well.
+        ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[general feedback]]></text>
+    </generalfeedback>
+    <penalty>0.3</penalty>
+    <hidden>0</hidden>
+    <tags>
+
+    <tag>
+        <text><![CDATA[moodle_quizzer_test]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[my-test-quiz]]></text>
+    </tag>
+
+</tags>
+    <shuffleanswers>1</shuffleanswers>
+<single>true</single>
+<correctfeedback format="html">
+    <text><![CDATA[]]></text>
+</correctfeedback>
+<partiallycorrectfeedback format="html">
+    <text><![CDATA[]]></text>
+</partiallycorrectfeedback>
+<incorrectfeedback format="html">
+    <text><![CDATA[]]></text>
+</incorrectfeedback>
+<answernumbering>none</answernumbering>
+
+<answer fraction="100">
+    <text><![CDATA[Correct answer]]>
+    </text>
+    <feedback>
+        <text><![CDATA[feedback, why is it correct?]]>
+        </text>
+    </feedback>
+</answer>
+
+<answer fraction="0">
+    <text><![CDATA[Wrong answer]]>
+    </text>
+    <feedback>
+        <text><![CDATA[feedback, why is it wrong?]]>
+        </text>
+    </feedback>
+</answer>
+
+</question>
+
+<question type="truefalse">
+    <name>
+        <text><![CDATA[Test: True/False]]></text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[
+        Question text here...
+        </br>
+        You can use HTML tags, such as <strong>bold</strong>.
+        </br>
+        You can use parameters: EPFL is amazing!
+        </br>
+        Parameters are also applicable in answers as well.
+        ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[general feedback]]></text>
+    </generalfeedback>
+    <penalty>0.3</penalty>
+    <hidden>0</hidden>
+    <tags>
+
+    <tag>
+        <text><![CDATA[moodle_quizzer_test]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[my-test-quiz]]></text>
+    </tag>
+
+</tags>
+    <answer fraction="100">
+    <text><![CDATA[true]]></text>
+    <feedback>
+        <text><![CDATA[feedback to show when true is marked]]></text>
+    </feedback>
+</answer>
+<answer fraction="0">
+    <text><![CDATA[false]]></text>
+    <feedback>
+        <text><![CDATA[feedback to show when false is marked]]></text>
+    </feedback>
+</answer>
+</question>
+
+</quiz>

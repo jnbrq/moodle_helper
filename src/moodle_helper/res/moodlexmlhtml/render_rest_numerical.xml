@@ -1,19 +1,9 @@
 <answer fraction="{{ r.fragment(q.answer[1]) }}" format="moodle_auto_format">
-    <text>
-    <![CDATA[
-        {{ r.fragment(q.answer[0]) }}
-    ]]>
-    </text>
+    <text><![CDATA[{{ r.fragment(q.answer[0]) }}]]></text>
     <feedback>
-        <text>
-        <![CDATA[
-            {{ r.fragment(q.answer[3]) }}
-        ]]>
-        </text>
+        <text><![CDATA[{{ r.fragment(q.answer[3]) }}]]></text>
     </feedback>
-    <tolerance>
-        {{ r.fragment(q.answer[2]) }}
-    </tolerance>
+    <tolerance>{{ r.fragment(q.answer[2]) }}</tolerance>
 </answer>
 <units>
 {% for multiplier, name in q.units %}

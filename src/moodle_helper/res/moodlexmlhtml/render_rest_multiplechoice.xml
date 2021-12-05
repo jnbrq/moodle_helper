@@ -1,39 +1,21 @@
 <shuffleanswers>{{ 1 if q.shuffleanswers else 0 }}</shuffleanswers>
 <single>{{ "true" if q.single else "false" }}</single>
 <correctfeedback format="html">
-    <text>
-    <![CDATA[
-        {{ r.fragment(q.correctfeedback) }}
-    ]]>
-    </text>
+    <text><![CDATA[{{ r.fragment(q.correctfeedback) }}]]></text>
 </correctfeedback>
 <partiallycorrectfeedback format="html">
-    <text>
-    <![CDATA[
-        {{ r.fragment(q.partiallycorrectfeedback) }}
-    ]]>
-    </text>
+    <text><![CDATA[{{ r.fragment(q.partiallycorrectfeedback) }}]]></text>
 </partiallycorrectfeedback>
 <incorrectfeedback format="html">
-    <text>
-    <![CDATA[
-        {{ r.fragment(q.incorrectfeedback) }}
-    ]]>
-    </text>
+    <text><![CDATA[{{ r.fragment(q.incorrectfeedback) }}]]></text>
 </incorrectfeedback>
 <answernumbering>{{ q.answernumbering }}</answernumbering>
 {% for answer, fraction, feedback in q.answers %}
 <answer fraction="{{ fraction }}">
-    <text>
-    <![CDATA[
-        {{ r.fragment(answer) }}
-    ]]>
+    <text><![CDATA[{{ r.fragment(answer) }}]]>
     </text>
     <feedback>
-        <text>
-        <![CDATA[
-            {{ r.fragment(feedback) }}
-        ]]>
+        <text><![CDATA[{{ r.fragment(feedback) }}]]>
         </text>
     </feedback>
 </answer>

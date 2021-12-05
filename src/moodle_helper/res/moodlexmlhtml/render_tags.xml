@@ -1,11 +1,7 @@
 <tags>
 {% for tag in q.tags %}
     <tag>
-        <text>
-        <![CDATA[
-            {{ r.fragment(tag) }}
-        ]]>
-        </text>
+        <text><![CDATA[{{ r.fragment(tag) }}]]></text>
     </tag>
 {% endfor %}
 </tags>
