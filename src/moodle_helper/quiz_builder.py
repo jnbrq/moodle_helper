@@ -127,7 +127,7 @@ class QuizBuilder:
             for qw in qws:
                 qw.tags.append(self._question_tag)
         self.questions.extend(qws)
-        self._added_questions = self._added_questions + 1
+        self._added_questions = self._added_questions + len(qws)
 
     def end(self) -> None:
         print(f"Done adding {self._added_questions} question(s).")
