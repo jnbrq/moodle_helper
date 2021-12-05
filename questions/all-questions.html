@@ -40,6 +40,13 @@
         function toggleControlPanel() {
             $(".control-panel").toggle();
         }
+
+        $(function() {
+            // to correctly render tables in the HTML preview
+            // TODO figure out what other Bootstrap classes are required
+            // for correct previewing.
+            $("table").addClass("table table-bordered");
+        });
     </script>
 
 <body>
@@ -92,7 +99,7 @@
         </br>
         You can use HTML tags, such as <strong>bold</strong>.
         </br>
-        You can use parameters: UNIL is amazing!
+        You can use parameters: EPFL is amazing!
         </br>
         Parameters are also applicable in answers as well.
         
@@ -163,7 +170,7 @@
         </br>
         You can use HTML tags, such as <strong>bold</strong>.
         </br>
-        You can use parameters: EPFL is amazing!
+        You can use parameters: UNIL is amazing!
         </br>
         Parameters are also applicable in answers as well.
         
@@ -341,19 +348,50 @@ H
         <br/>
         <ul>
             <li>
-            1-cycle L1 cache has a hit rate of 0.85.
+            1-cycle L1 cache has a hit rate of 0.8.
             </li>
 
             <li>
-            6-cycle L2 cache has a hit rate of 0.7
+            5-cycle L2 cache has a hit rate of 0.9
             </li>
 
             <li>
-            Main memory has a 110-cycle latency.
+            Main memory has a 100-cycle latency.
             </li>
         </ul>
         <br/>
         What is the average memory access time (AMAT) for this processor?
+
+        <table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
         
         </div>
         <div class="mb-3">
@@ -364,7 +402,7 @@ H
 <div class="answer">
     <em>Answer:</em>
     
-    6.850000000000002
+    3.999999999999999
     
     <br/>
     <div class="answer-feedback">

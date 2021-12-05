@@ -40,6 +40,13 @@
         function toggleControlPanel() {
             $(".control-panel").toggle();
         }
+
+        $(function() {
+            // to correctly render tables in the HTML preview
+            // TODO figure out what other Bootstrap classes are required
+            // for correct previewing.
+            $("table").addClass("table table-bordered");
+        });
     </script>
 
 <body>
