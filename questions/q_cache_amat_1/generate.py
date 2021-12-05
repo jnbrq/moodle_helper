@@ -4,19 +4,16 @@ from datetime import datetime
 
 
 class MyQuestion(QuestionWrapper):
-    # edit these parameters
-    author: str = "Canberk Sonmez"
-    name: str = "Caches: Average Memory Access Time - 1"
-    difficulty: int = 1
-    created: datetime = datetime(2021, 9, 8)  # year, month, day, ...
-    tags = ["cache", "amat", "cache-amat-q1"]
-    skip = False
-
     def __init__(self) -> None:
         """
         Constructor.
         """
-        pass  # pass is required for empty functions
+        self.author: str = "Canberk Sonmez"
+        self.name: str = "Caches: Average Memory Access Time - 1"
+        self.difficulty: int = 1
+        self.created: datetime = datetime(2021, 9, 8)  # year, month, day, ...
+        self.tags = ["cache", "amat", "cache-amat-q1"]
+        self.skip = False
 
     def question(self) -> QuestionBase:
         """

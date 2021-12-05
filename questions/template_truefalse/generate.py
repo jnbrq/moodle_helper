@@ -4,19 +4,16 @@ from datetime import datetime
 
 
 class MyQuestion(QuestionWrapper):
-    # edit these parameters
-    author: str = "John Doe"
-    name: str = "Test: True/False"
-    difficulty: int = 1
-    created: datetime = datetime(2021, 9, 5)  # year, month, day, ...
-    tags = ["moodle_quizzer_test"]
-    skip = False
-
     def __init__(self) -> None:
         """
         Constructor.
         """
-        pass  # pass is required for empty functions
+        self.author: str = "John Doe"
+        self.name: str = "Test: True/False"
+        self.difficulty: int = 1
+        self.created: datetime = datetime(2021, 9, 5)  # year, month, day, ...
+        self.tags = ["moodle_quizzer_test"]
+        self.skip = False
 
     def question(self) -> QuestionBase:
         """
