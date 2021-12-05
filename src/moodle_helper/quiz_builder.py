@@ -48,8 +48,11 @@ class QuestionWrapper(ABC):
 
 class Chooser:
     @staticmethod
-    def random(l: List[Any]) -> List[Any]:
-        return [random.choice(l)]
+    def random(k: int = 1) -> Callable[[List], List]:
+        def f(l: List[Any]) -> List[Any]:
+            random.shuffle(l)
+            return l[0:k]
+        return f
 
     @staticmethod
     def all(l: List[Any]) -> List[Any]:
