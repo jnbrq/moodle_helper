@@ -12,40 +12,32 @@ import sys
 
 class QuestionWrapper(ABC):
     @property
-    @abstractmethod
     def author(self) -> str:
         ...
 
     @property
-    @abstractmethod
     def name(self) -> str:
         ...
 
     @property
-    @abstractmethod
     def difficulty(self) -> int:
         ...
 
     @property
-    @abstractmethod
     def created(self) -> datetime:
         ...
 
     @property
-    @abstractmethod
     def tags(self) -> List[str]:
         ...
 
     @property
-    @abstractmethod
     def skip(self) -> bool:
         ...
 
-    @abstractmethod
     def question(self) -> QuestionBase:
         ...
 
-    @abstractmethod
     def parameters_list(self) -> List[Dict[str, object]]:
         ...
 
