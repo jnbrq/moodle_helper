@@ -1,6 +1,6 @@
 from .renderer_base import *
 from .question_types import *
-from .module_resources import ModuleResources
+from .resources import ModuleResources
 import os
 from jinja2 import Template
 

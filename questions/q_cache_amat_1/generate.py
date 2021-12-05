@@ -23,7 +23,7 @@ class MyQuestion(QuestionWrapper):
         Returns the base question.
         """
 
-        q = NumericalQuestion()
+        q = NumericalQuestion(__file__)
         q.name = self.name
         q.tags.extend(self.tags)
 

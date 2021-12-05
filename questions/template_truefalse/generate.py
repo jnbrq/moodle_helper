@@ -23,7 +23,7 @@ class MyQuestion(QuestionWrapper):
         Returns the base question.
         """
 
-        q = TrueFalseQuestion()
+        q = TrueFalseQuestion(__file__)
         q.name = self.name
         q.tags.extend(self.tags)
 

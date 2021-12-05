@@ -75,8 +75,6 @@ class QuizBuilder:
         qws: List[QuestionWrapper] = getattr(m, "generate")()
         for qw in qws:
             if not qw.skip:
-                setattr(qw, "_X_res_dir", os.curdir +
-                        os.pathsep + package_name)
                 self.questions.append(qw)
         sys.path.remove(path)
 
@@ -91,7 +89,6 @@ class QuizBuilder:
             qws: List[QuestionWrapper] = getattr(m, "generate")()
             for qw in qws:
                 if filterfn(qw) and not qw.skip:
-                    setattr(qw, "_X_res_dir", os.curdir + "/" + package_name)
                     self.questions.append(qw)
         sys.path.remove(path)
                 
@@ -113,7 +110,6 @@ class QuizBuilder:
                 question.tags.append(self.quiz_tag)
                 for params in params_list:
                     question.add_params(**params)
-                    question.res_dir = qq._X_res_dir
                     yield question
         renderer = renderer_factory()
         return renderer.render_quiz(qs())

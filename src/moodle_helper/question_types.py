@@ -1,6 +1,52 @@
+import os
+
+from moodle_helper.resources import Resources, UninitializedResources
+
+# The following names are used as part of the MoodleXML API.
+# Forbid overwriting them!
+_reserved_names = [
+    "tags",
+    "text",
+    "name",
+    "defaultgrade",
+    "generalfeedback",
+    "penalty",
+    "hidden",
+    "type",
+    "res_dir",
+    "add_param",
+    "add_params",
+    "type",
+    "answer",
+    "units",
+    "unitgradingtype",
+    "showunits",
+    "unitpenalty",
+    "unitsleft",
+    "add_answer",
+    "add_unit",
+    "grade_units",
+    "show_units",
+    "unit_penalty",
+    "units_on_left",
+    "answers",
+    "shuffleanswers",
+    "single",
+    "correctfeedback",
+    "partiallycorrectfeedback",
+    "incorrectfeedback",
+    "answernumbering",
+    "trueans",
+    "falseans",
+    "correctone",
+    "add_trueans",
+    "add_falseans",
+    "mark_correct"
+]
+
 
 class QuestionBase:
-    def __init__(self):
+    def __init__(self, dunderfile: str = None):
         self.tags = []
         self.text = ""
         self.name = ""
@@ -9,9 +55,18 @@ class QuestionBase:
         self.penalty = 0.3
         self.hidden = 0
         self.type = ""
-        self.res_dir = "."
+        if dunderfile is None:
+            self.res_dir = None
+            self.resources = UninitializedResources(
+                "__file__ is not passed, cannot find the module path! QuestionBase.__init__(self, *, **)")
+        else:
+            self.resources = Resources(dunderfile)
+            self.res_dir = self.resources.resdir()
 
     def add_param(self, param, value):
+        if any([x == param for x in _reserved_names]):
+            raise KeyError(
+                f"A reserved name should not be overwritten! QuestionBase.add_param(self, {param}, *, **)")
         setattr(self, param, value)
 
     def add_params(self, **kwargs):
@@ -20,8 +75,8 @@ class QuestionBase:
 
 
 class NumericalQuestion(QuestionBase):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, dunderfile: str = None):
+        super().__init__(dunderfile)
         self.type = "numerical"
         self.answer = None
         self.units = []
@@ -50,8 +105,8 @@ class NumericalQuestion(QuestionBase):
 
 
 class MultipleChoiceQuestion(QuestionBase):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, dunderfile: str = None):
+        super().__init__(dunderfile)
         self.type = "multichoice"
         self.answers = []
         self.shuffleanswers = True
@@ -66,8 +121,8 @@ class MultipleChoiceQuestion(QuestionBase):
 
 
 class ShortAnswerQuestion(QuestionBase):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, dunderfile: str = None):
+        super().__init__(dunderfile)
         self.type = "shortanswer"
         self.answers = []
 
@@ -76,8 +131,8 @@ class ShortAnswerQuestion(QuestionBase):
 
 
 class TrueFalseQuestion(QuestionBase):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, dunderfile: str = None):
+        super().__init__(dunderfile)
         self.trueans = None
         self.falseans = None
         self.correctone = True
