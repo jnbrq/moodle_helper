@@ -68,7 +68,7 @@
         </br>
         You can use HTML tags, such as <strong>bold</strong>.
         </br>
-        You can use parameters: UNIL is amazing!
+        You can use parameters: EPFL is amazing!
         </br>
         Parameters are also applicable in answers as well.
         ]]></text>
@@ -97,13 +97,59 @@
     </feedback>
 </answer>
 
-<answer fraction="100">
+<answer fraction="50">
     <text><![CDATA[alternative answer two]]></text>
     <feedback>
         <text><![CDATA[feedback when typed]]></text>
     </feedback>
 </answer>
 
+<usecase>0</usecase>
+</question>
+
+<question type="truefalse">
+    <name>
+        <text><![CDATA[Test: True/False]]></text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[
+        Question text here...
+        </br>
+        You can use HTML tags, such as <strong>bold</strong>.
+        </br>
+        You can use parameters: UNIL is amazing!
+        </br>
+        Parameters are also applicable in answers as well.
+        ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[general feedback]]></text>
+    </generalfeedback>
+    <penalty>0.3</penalty>
+    <hidden>0</hidden>
+    <tags>
+
+    <tag>
+        <text><![CDATA[moodle_quizzer_test]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[my-test-quiz]]></text>
+    </tag>
+
+</tags>
+    <answer fraction="100">
+    <text><![CDATA[true]]></text>
+    <feedback>
+        <text><![CDATA[feedback to show when true is marked]]></text>
+    </feedback>
+</answer>
+<answer fraction="0">
+    <text><![CDATA[false]]></text>
+    <feedback>
+        <text><![CDATA[feedback to show when false is marked]]></text>
+    </feedback>
+</answer>
 </question>
 
 <question type="numerical">
@@ -116,15 +162,15 @@
         <br/>
         <ul>
             <li>
-            1-cycle L1 cache has a hit rate of 0.95.
+            1-cycle L1 cache has a hit rate of 0.8.
             </li>
 
             <li>
-            8-cycle L2 cache has a hit rate of 0.4
+            5-cycle L2 cache has a hit rate of 0.9
             </li>
 
             <li>
-            Main memory has a 130-cycle latency.
+            Main memory has a 100-cycle latency.
             </li>
         </ul>
         <br/>
@@ -156,7 +202,7 @@
 
 </tags>
     <answer fraction="100" format="moodle_auto_format">
-    <text><![CDATA[5.300000000000004]]></text>
+    <text><![CDATA[3.999999999999999]]></text>
     <feedback>
         <text><![CDATA[]]></text>
     </feedback>
@@ -169,6 +215,70 @@
 <unitpenalty>0.0</unitpenalty>
 <showunits>0</showunits>
 <unitsleft>0</unitsleft>
+</question>
+
+<question type="multichoice">
+    <name>
+        <text><![CDATA[Test: Multichoice]]></text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[
+        Question text here...
+        </br>
+        You can use HTML tags, such as <strong>bold</strong>.
+        </br>
+        You can use parameters: UNIL is amazing!
+        </br>
+        Parameters are also applicable in answers as well.
+        ]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[general feedback]]></text>
+    </generalfeedback>
+    <penalty>0.3</penalty>
+    <hidden>0</hidden>
+    <tags>
+
+    <tag>
+        <text><![CDATA[moodle_quizzer_test]]></text>
+    </tag>
+
+    <tag>
+        <text><![CDATA[my-test-quiz]]></text>
+    </tag>
+
+</tags>
+    <shuffleanswers>1</shuffleanswers>
+<single>true</single>
+<correctfeedback format="html">
+    <text><![CDATA[]]></text>
+</correctfeedback>
+<partiallycorrectfeedback format="html">
+    <text><![CDATA[]]></text>
+</partiallycorrectfeedback>
+<incorrectfeedback format="html">
+    <text><![CDATA[]]></text>
+</incorrectfeedback>
+<answernumbering>none</answernumbering>
+
+<answer fraction="100">
+    <text><![CDATA[Correct answer]]>
+    </text>
+    <feedback>
+        <text><![CDATA[feedback, why is it correct?]]>
+        </text>
+    </feedback>
+</answer>
+
+<answer fraction="0">
+    <text><![CDATA[Wrong answer]]>
+    </text>
+    <feedback>
+        <text><![CDATA[feedback, why is it wrong?]]>
+        </text>
+    </feedback>
+</answer>
+
 </question>
 
 <question type="shortanswer">
@@ -246,115 +356,7 @@ H
     </feedback>
 </answer>
 
-</question>
-
-<question type="multichoice">
-    <name>
-        <text><![CDATA[Test: Multichoice]]></text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[
-        Question text here...
-        </br>
-        You can use HTML tags, such as <strong>bold</strong>.
-        </br>
-        You can use parameters: EPFL is amazing!
-        </br>
-        Parameters are also applicable in answers as well.
-        ]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[general feedback]]></text>
-    </generalfeedback>
-    <penalty>0.3</penalty>
-    <hidden>0</hidden>
-    <tags>
-
-    <tag>
-        <text><![CDATA[moodle_quizzer_test]]></text>
-    </tag>
-
-    <tag>
-        <text><![CDATA[my-test-quiz]]></text>
-    </tag>
-
-</tags>
-    <shuffleanswers>1</shuffleanswers>
-<single>true</single>
-<correctfeedback format="html">
-    <text><![CDATA[]]></text>
-</correctfeedback>
-<partiallycorrectfeedback format="html">
-    <text><![CDATA[]]></text>
-</partiallycorrectfeedback>
-<incorrectfeedback format="html">
-    <text><![CDATA[]]></text>
-</incorrectfeedback>
-<answernumbering>none</answernumbering>
-
-<answer fraction="100">
-    <text><![CDATA[Correct answer]]>
-    </text>
-    <feedback>
-        <text><![CDATA[feedback, why is it correct?]]>
-        </text>
-    </feedback>
-</answer>
-
-<answer fraction="0">
-    <text><![CDATA[Wrong answer]]>
-    </text>
-    <feedback>
-        <text><![CDATA[feedback, why is it wrong?]]>
-        </text>
-    </feedback>
-</answer>
-
-</question>
-
-<question type="truefalse">
-    <name>
-        <text><![CDATA[Test: True/False]]></text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[
-        Question text here...
-        </br>
-        You can use HTML tags, such as <strong>bold</strong>.
-        </br>
-        You can use parameters: EPFL is amazing!
-        </br>
-        Parameters are also applicable in answers as well.
-        ]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[general feedback]]></text>
-    </generalfeedback>
-    <penalty>0.3</penalty>
-    <hidden>0</hidden>
-    <tags>
-
-    <tag>
-        <text><![CDATA[moodle_quizzer_test]]></text>
-    </tag>
-
-    <tag>
-        <text><![CDATA[my-test-quiz]]></text>
-    </tag>
-
-</tags>
-    <answer fraction="100">
-    <text><![CDATA[true]]></text>
-    <feedback>
-        <text><![CDATA[feedback to show when true is marked]]></text>
-    </feedback>
-</answer>
-<answer fraction="0">
-    <text><![CDATA[false]]></text>
-    <feedback>
-        <text><![CDATA[feedback to show when false is marked]]></text>
-    </feedback>
-</answer>
+<usecase>0</usecase>
 </question>
 
 </quiz>

@@ -54,8 +54,8 @@ class MyQuestion(QuestionWrapper):
         # +---+---+---+---+
         q.text = layout
 
-        q.add_answer("alternative answer one", "feedback when typed")
-        q.add_answer("alternative answer two", "feedback when typed")
+        q.add_answer("alternative answer one", 100, "feedback when typed")
+        q.add_answer("alternative answer two", 100, "feedback when typed")
 
         q.generalfeedback = "general feedback"
         q.penalty = 0.3  # penalty in case of wrong answer

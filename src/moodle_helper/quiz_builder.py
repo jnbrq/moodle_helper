@@ -101,7 +101,7 @@ class QuizBuilder:
     def build(self,
               renderer_factory: Callable[[QuestionBase],
                                          RendererBase] = MoodleXMLHTMLRenderer,
-              chooser: Callable[[List[Any]], List[Any]] = Chooser.random) -> str:
+              chooser: Callable[[List[Any]], List[Any]] = Chooser.random(1)) -> str:
         def qs():
             for qq in self.questions:
                 question = qq.question()

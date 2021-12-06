@@ -6,9 +6,15 @@
     <em>Possible answers:</em>
     <br/>
     <div class="list-group">
-    {% for answer, feedback in q.answers %}
+    {% for answer, fraction, feedback in q.answers %}
     <div class="list-group-item">
-        <em>Answer:</em>
+        <em>Answer:
+            {% if fraction > 0 %}
+            <span class="badge bg-success">{{ fraction }}%</span>
+            {% else %}
+            <span class="badge bg-danger">wrong answer</span>
+            {% endif %}
+        </em>
         <br/>
         {{ r.fragment(answer) }}
         <br/>

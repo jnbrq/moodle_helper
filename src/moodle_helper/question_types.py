@@ -41,7 +41,9 @@ _reserved_names = [
     "correctone",
     "add_trueans",
     "add_falseans",
-    "mark_correct"
+    "mark_correct",
+    "usecase",
+    "use_case"
 ]
 
 
@@ -125,9 +127,16 @@ class ShortAnswerQuestion(QuestionBase):
         super().__init__(dunderfile)
         self.type = "shortanswer"
         self.answers = []
+        self.usecase = 0
 
-    def add_answer(self, text, feedback):
-        self.answers.append((text, feedback))
+    def add_answer(self, text, fraction, feedback):
+        self.answers.append((text, fraction, feedback))
+    
+    def use_case(self, v: bool = False):
+        if v:
+            self.usecase = 1
+        else:
+            self.usecase = 0
 
 
 class TrueFalseQuestion(QuestionBase):

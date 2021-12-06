@@ -24,6 +24,7 @@ class MyQuestion(QuestionWrapper):
         q = ShortAnswerQuestion(__file__)
         q.name = self.name
         q.tags.extend(self.tags)
+        q.use_case(False)
 
         # edit below
         q.text = """
@@ -46,8 +47,10 @@ class MyQuestion(QuestionWrapper):
         #  - Make sure that sequences {{ and }} do not occur in Latex equations.
         #    These sequences interfere with jinja2 template generator.
 
-        q.add_answer("alternative answer one", "feedback when typed")
-        q.add_answer("alternative answer two", "feedback when typed")
+        q.add_answer("alternative answer one", 100, "feedback when typed")
+
+        # only get half the mark for this example
+        q.add_answer("alternative answer two", 50, "feedback when typed")
         
         q.generalfeedback = "general feedback"
         q.penalty = 0.3 # penalty in case of wrong answer

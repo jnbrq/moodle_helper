@@ -1,8 +1,9 @@
-{% for answer, feedback in q.answers %}
-<answer fraction="100">
+{% for answer, fraction, feedback in q.answers %}
+<answer fraction="{{ r.fragment(fraction) }}">
     <text><![CDATA[{{ r.fragment(answer) }}]]></text>
     <feedback>
         <text><![CDATA[{{ r.fragment(feedback) }}]]></text>
     </feedback>
 </answer>
 {% endfor %}
+<usecase>{{ r.fragment(q.usecase) }}</usecase>
