@@ -1,7 +1,7 @@
 from typing import List
 from .quiz_builder import QuestionWrapper, QuizBuilder
 
-def default_main(*args: List[List[QuestionWrapper]]):
+def default_main(*args: List[List[QuestionWrapper]], output_kwargs={}):
     qb = QuizBuilder("preview")
     qb.begin()
 
@@ -10,4 +10,4 @@ def default_main(*args: List[List[QuestionWrapper]]):
 
     qb.end()
 
-    qb.output_html_preview("preview.html")
+    qb.output_html_preview("preview.html", **output_kwargs)
